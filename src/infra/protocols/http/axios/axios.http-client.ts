@@ -1,9 +1,8 @@
 import { HttpClient, Request, Response } from '@data/contracts/http-client.contract';
-import { Todo } from "@domain/entities/todo.entity";
 import { Axios } from './axios.config';
 
-export class AxiosHttpClient implements HttpClient {
-    async handle(request: Request): Promise<Response> {
+export class AxiosHttpClient<T> implements HttpClient<T> {
+    async handle(request: Request<T>): Promise<Response<T>> {
         try {
             const response = await Axios({
                 method: request.method,
@@ -11,7 +10,7 @@ export class AxiosHttpClient implements HttpClient {
                 url: request.path
             })
 
-            const responseData: Response<Todo> = {
+            const responseData: Response<T> = {
                 data: response.data,
                 statusCode: response.status
             }

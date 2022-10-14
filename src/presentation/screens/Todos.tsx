@@ -1,8 +1,6 @@
 import { ScrollView, Text } from "react-native";
 import { useTodoViewModel } from "./use-view-model";
 
-
-
 export function Todos() {
     const { todos } = useTodoViewModel()
 

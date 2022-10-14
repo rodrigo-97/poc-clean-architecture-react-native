@@ -1,5 +1,5 @@
 export type RemoteTodo = {
-    name: string
+    title: string
     body: string
     id: number
     userId: number
