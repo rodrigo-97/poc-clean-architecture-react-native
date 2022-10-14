@@ -1,14 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
-import { Todos } from './src/presentation/screens/Todos';
+import { Todo } from './src/presentation/screens/todos/Todo';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StyleSheet } from 'react-native';
+import { Home } from './src/presentation/screens/home/Home';
+import { Todos } from './src/presentation/screens/todos/Todos';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <StatusBar style="auto" />
-
-      <Todos  />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="home" component={Home} />
+        <Stack.Screen name="list" component={Todos} />
+        <Stack.Screen name="id" component={Todo} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 

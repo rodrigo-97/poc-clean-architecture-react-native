@@ -5,7 +5,9 @@ export function Todos() {
     const { todos } = useTodoViewModel()
 
     return (
-        <ScrollView>
+        <ScrollView style={{
+            padding: 32
+        }}>
             {
                 todos.map((todo, index) => {
                     return (
