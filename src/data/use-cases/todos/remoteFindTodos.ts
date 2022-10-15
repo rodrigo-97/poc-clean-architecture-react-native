@@ -1,7 +1,7 @@
-import { HttpClient, HttpVerbs, UsedStatusCode } from "../../../data/contracts/http-client.contract";
-import { RemoteTodo } from "@data/contracts/remote-todo.contract";
-import { CouldNotFetchTodos } from "../../../domain/exceptions/could-not-fetch-todos.exception";
-import { ITodoRepository } from "@domain/repositories/todo.repository";
+import { HttpClient, HttpVerbs, UsedStatusCode } from "@/data/contracts/httpClient"
+import { RemoteTodo } from "@/data/contracts/remoteTodo"
+import { CouldNotFetchTodos } from "@/domain/exceptions/todos/couldNotFetchTodos"
+import { ITodoRepository } from "@/domain/repositories/todos/todoRepository"
 
 export class RemoteFindTodos implements ITodoRepository {
     constructor(

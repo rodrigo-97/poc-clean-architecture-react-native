@@ -1,8 +1,8 @@
-import { HttpClient, HttpVerbs, UsedStatusCode } from "@data/contracts/http-client.contract";
-import { RemoteTodo } from "@data/contracts/remote-todo.contract";
-import { Todo } from "@domain/entities/todo.entity";
-import { CouldNotCreateTodo } from "@domain/exceptions/could-not-create-todo.exception";
-import { ITodoRepository } from "@domain/repositories/todo.repository";
+import { HttpClient, HttpVerbs, UsedStatusCode } from "@/data/contracts/httpClient"
+import { RemoteTodo } from "@/data/contracts/remoteTodo"
+import { Todo } from "@/domain/entities/entity"
+import { CouldNotCreateTodo } from "@/domain/exceptions/todos/couldNotCreate"
+import { ITodoRepository } from "@/domain/repositories/todos/todoRepository"
 
 export class RemoteAddTodo implements ITodoRepository {
     constructor(
@@ -18,7 +18,7 @@ export class RemoteAddTodo implements ITodoRepository {
             method: HttpVerbs.POST,
             path: '/'
         })
-
+        
         if (statusCode === UsedStatusCode.CREATED){
             return data as Todo
         }

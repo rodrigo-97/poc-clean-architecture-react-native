@@ -1,21 +1,19 @@
-import { Todo as TodoModel } from "@domain/entities/todo.entity";
-import { useEffect, useState } from "react";
-import { Text, TextInput, View } from "react-native";
-import { remoteFindTodoById } from "../../../main/factories/use-cases/remote-find-todo-by-id";
+import { Todo } from "@/domain/entities/entity"
+import { remoteFindTodoById } from "@/main/factories/use-cases/todos/remoteFindTodoById"
+import { Button } from "@/presentation/components/Button"
+import { useState } from "react"
+import { Text, TextInput } from "react-native"
+import { View } from "react-native"
 
-export function Todo() {
-    const [todo, setTodo] = useState<TodoModel>()
+export function TodoPage() {
+    const [todo, setTodo] = useState<Todo | null>()
     const [id, setId] = useState('')
 
-    useEffect(() => {
+    function getTodo() {
         const todo = +id >= 1 && remoteFindTodoById()
             .get(+id)
             .then((res) => setTodo(res))
-
-        return () => {
-            todo
-        }
-    }, [id])
+    }
 
     return (
         <View style={{ padding: 20 }}>
@@ -28,6 +26,7 @@ export function Todo() {
                 }}
                 onChangeText={setId}
             />
+            <Button title="Procurar" onPress={getTodo} />
             <Text style={{ marginTop: 20 }}>
                 {todo?.title}
             </Text>

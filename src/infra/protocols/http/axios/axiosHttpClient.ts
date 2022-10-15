@@ -1,5 +1,5 @@
-import { HttpClient, Request, Response } from '@data/contracts/http-client.contract';
-import { Axios } from './axios.config';
+import { HttpClient, Request, Response } from '@/data/contracts/httpClient';
+import { Axios } from './axiosConfig';
 
 export class AxiosHttpClient<T> implements HttpClient<T> {
     async handle(request: Request<T>): Promise<Response<T>> {

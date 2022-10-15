@@ -8,7 +8,7 @@ export function Home() {
         <View>
             <Button title="Listar" onPress={() => navigate("list")} />
             <Button title="Buscar por id" onPress={() => navigate("id")} />
-            <Button title="Criar" />
+            <Button title="Criar" onPress={() => navigate("create")}/>
             <Button title="Atualizar" />
             <Button title="Deletar" />
         </View>
